@@ -1,6 +1,6 @@
 {
   "name": "ulitecore-lib",
-  "version": "0.13.21",
+  "version": "0.13.22",
   "description": "A pure and powerful JavaScript Litecoin library.",
   "author": "Jay <jay@pentajeu.com>",
   "main": "index.js",

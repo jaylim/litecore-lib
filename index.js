@@ -1,70 +1,70 @@
 'use strict';
 
-var litecore = module.exports;
+var ulitecore = module.exports;
 
 // module information
-litecore.version = 'v' + require('./package.json').version;
-litecore.versionGuard = function(version) {
+ulitecore.version = 'v' + require('./package.json').version;
+ulitecore.versionGuard = function(version) {
   if (version !== undefined) {
-    var message = 'More than one instance of litecore-lib found. ' +
-      'Please make sure to require litecore-lib and check that submodules do' +
-      ' not also include their own litecore-lib dependency.';
+    var message = 'More than one instance of ulitecore-lib found. ' +
+      'Please make sure to require ulitecore-lib and check that submodules do' +
+      ' not also include their own ulitecore-lib dependency.';
     throw new Error(message);
   }
 };
-litecore.versionGuard(global._litecore);
-global._litecore = litecore.version;
+ulitecore.versionGuard(global._ulitecore);
+global._ulitecore = ulitecore.version;
 
 // crypto
-litecore.crypto = {};
-litecore.crypto.BN = require('./lib/crypto/bn');
-litecore.crypto.ECDSA = require('./lib/crypto/ecdsa');
-litecore.crypto.Hash = require('./lib/crypto/hash');
-litecore.crypto.Random = require('./lib/crypto/random');
-litecore.crypto.Point = require('./lib/crypto/point');
-litecore.crypto.Signature = require('./lib/crypto/signature');
+ulitecore.crypto = {};
+ulitecore.crypto.BN = require('./lib/crypto/bn');
+ulitecore.crypto.ECDSA = require('./lib/crypto/ecdsa');
+ulitecore.crypto.Hash = require('./lib/crypto/hash');
+ulitecore.crypto.Random = require('./lib/crypto/random');
+ulitecore.crypto.Point = require('./lib/crypto/point');
+ulitecore.crypto.Signature = require('./lib/crypto/signature');
 
 // encoding
-litecore.encoding = {};
-litecore.encoding.Base58 = require('./lib/encoding/base58');
-litecore.encoding.Base58Check = require('./lib/encoding/base58check');
-litecore.encoding.BufferReader = require('./lib/encoding/bufferreader');
-litecore.encoding.BufferWriter = require('./lib/encoding/bufferwriter');
-litecore.encoding.Varint = require('./lib/encoding/varint');
+ulitecore.encoding = {};
+ulitecore.encoding.Base58 = require('./lib/encoding/base58');
+ulitecore.encoding.Base58Check = require('./lib/encoding/base58check');
+ulitecore.encoding.BufferReader = require('./lib/encoding/bufferreader');
+ulitecore.encoding.BufferWriter = require('./lib/encoding/bufferwriter');
+ulitecore.encoding.Varint = require('./lib/encoding/varint');
 
 // utilities
-litecore.util = {};
-litecore.util.buffer = require('./lib/util/buffer');
-litecore.util.js = require('./lib/util/js');
-litecore.util.preconditions = require('./lib/util/preconditions');
+ulitecore.util = {};
+ulitecore.util.buffer = require('./lib/util/buffer');
+ulitecore.util.js = require('./lib/util/js');
+ulitecore.util.preconditions = require('./lib/util/preconditions');
 
 // errors thrown by the library
-litecore.errors = require('./lib/errors');
+ulitecore.errors = require('./lib/errors');
 
 // main bitcoin library
-litecore.Address = require('./lib/address');
-litecore.Block = require('./lib/block');
-litecore.MerkleBlock = require('./lib/block/merkleblock');
-litecore.BlockHeader = require('./lib/block/blockheader');
-litecore.HDPrivateKey = require('./lib/hdprivatekey.js');
-litecore.HDPublicKey = require('./lib/hdpublickey.js');
-litecore.Networks = require('./lib/networks');
-litecore.Opcode = require('./lib/opcode');
-litecore.PrivateKey = require('./lib/privatekey');
-litecore.PublicKey = require('./lib/publickey');
-litecore.Script = require('./lib/script');
-litecore.Transaction = require('./lib/transaction');
-litecore.URI = require('./lib/uri');
-litecore.Unit = require('./lib/unit');
+ulitecore.Address = require('./lib/address');
+ulitecore.Block = require('./lib/block');
+ulitecore.MerkleBlock = require('./lib/block/merkleblock');
+ulitecore.BlockHeader = require('./lib/block/blockheader');
+ulitecore.HDPrivateKey = require('./lib/hdprivatekey.js');
+ulitecore.HDPublicKey = require('./lib/hdpublickey.js');
+ulitecore.Networks = require('./lib/networks');
+ulitecore.Opcode = require('./lib/opcode');
+ulitecore.PrivateKey = require('./lib/privatekey');
+ulitecore.PublicKey = require('./lib/publickey');
+ulitecore.Script = require('./lib/script');
+ulitecore.Transaction = require('./lib/transaction');
+ulitecore.URI = require('./lib/uri');
+ulitecore.Unit = require('./lib/unit');
 
 // dependencies, subject to change
-litecore.deps = {};
-litecore.deps.bnjs = require('bn.js');
-litecore.deps.bs58 = require('bs58');
-litecore.deps.Buffer = Buffer;
-litecore.deps.elliptic = require('elliptic');
-litecore.deps.scryptsy = require('scryptsy');
-litecore.deps._ = require('lodash');
+ulitecore.deps = {};
+ulitecore.deps.bnjs = require('bn.js');
+ulitecore.deps.bs58 = require('bs58');
+ulitecore.deps.Buffer = Buffer;
+ulitecore.deps.elliptic = require('elliptic');
+ulitecore.deps.scryptsy = require('scryptsy');
+ulitecore.deps._ = require('lodash');
 
 // Internal usage, exposed for testing/advanced tweaking
-litecore.Transaction.sighash = require('./lib/transaction/sighash');
+ulitecore.Transaction.sighash = require('./lib/transaction/sighash');
